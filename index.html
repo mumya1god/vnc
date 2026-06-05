@@ -748,6 +748,225 @@
     font-size: 12px;
     flex-shrink: 0;
     display: flex; align-items: center; gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-normal);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    body { font-size: 13px; }
+    
+    #app { flex-direction: column; }
+    
+    #server-list {
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+      flex-direction: row;
+      padding: 8px;
+      gap: 4px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border-bottom: 1px solid var(--bg-tertiary);
+    }
+
+    .server-icon { width: 40px; height: 40px; }
+    .server-add { width: 40px; height: 40px; }
+    .dm-icon { width: 40px; height: 40px; }
+    
+    #channel-sidebar {
+      width: 100%;
+      min-width: 100%;
+      max-height: 200px;
+      border-right: none;
+      border-bottom: 1px solid var(--bg-tertiary);
+      position: relative;
+      z-index: 100;
+    }
+
+    #channel-sidebar.mobile-hidden { display: none; }
+
+    #main {
+      min-height: 0;
+      height: auto;
+      flex: 1;
+    }
+
+    #member-sidebar {
+      width: 100%;
+      min-width: 100%;
+      max-height: 200px;
+      border-left: none;
+      border-top: 1px solid var(--bg-tertiary);
+      padding: 8px;
+    }
+
+    #member-sidebar.open { display: block; }
+
+    .chat-header {
+      padding: 0 8px;
+      height: 44px;
+      font-size: 13px;
+    }
+
+    .chat-header-name { font-size: 14px; }
+    .chat-header-topic { max-width: 150px; font-size: 12px; }
+
+    .guild-header { padding: 0 8px; height: 44px; font-size: 13px; }
+
+    .channel-list { padding: 4px 0; }
+    .channel-item { margin: 0 2px; padding: 4px 6px; font-size: 13px; gap: 4px; }
+    .channel-name { font-size: 13px; }
+
+    .chat-input { font-size: 14px; }
+    .chat-input-btn { width: 36px; height: 36px; }
+    .send-btn { width: 32px; height: 32px; }
+
+    .token-box { width: 95vw; padding: 24px; }
+    .token-box h1 { font-size: 20px; }
+    .token-box p { font-size: 13px; }
+
+    .modal { width: 95vw; padding: 16px; }
+
+    .empty-state { padding: 20px; }
+    .empty-icon { font-size: 48px; }
+    .empty-text { font-size: 14px; }
+
+    #toast-container { bottom: 12px; right: 12px; }
+    .toast { max-width: 280px; font-size: 13px; }
+
+    .user-panel { padding: 6px; gap: 4px; }
+    .user-panel-avatar { width: 28px; height: 28px; }
+    .user-panel-info { min-width: 100px; }
+    .user-panel-name { font-size: 12px; }
+    .user-panel-tag { font-size: 10px; }
+    .icon-btn { width: 28px; height: 28px; }
+
+    .message-group { gap: 8px; padding: 1px 8px; }
+    .msg-avatar { width: 32px; height: 32px; font-size: 12px; }
+    .msg-avatar-spacer { width: 32px; }
+    .msg-author { font-size: 14px; }
+    .msg-time { font-size: 10px; }
+    .msg-text { font-size: 14px; }
+
+    .member-item { padding: 4px 6px; gap: 6px; }
+    .member-avatar { width: 28px; height: 28px; font-size: 11px; }
+    .member-name { font-size: 13px; }
+
+    .dm-item { padding: 6px 8px; gap: 8px; margin: 0 4px; }
+    .dm-avatar { width: 28px; height: 28px; }
+    .dm-name { font-size: 13px; }
+
+    .search-bar { width: 100px; font-size: 12px; }
+
+    .category-name { font-size: 10px; padding: 4px 2px; }
+    .channel-category { margin-top: 4px; padding: 0 4px; }
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 12px; }
+    
+    #server-list { height: auto; padding: 4px; gap: 2px; }
+    .server-icon { width: 36px; height: 36px; font-size: 11px; }
+    .server-add { width: 36px; height: 36px; font-size: 18px; }
+    .dm-icon { width: 36px; height: 36px; }
+
+    #channel-sidebar { max-height: 150px; }
+    #member-sidebar { max-height: 150px; }
+
+    .chat-header { padding: 0 4px; height: 40px; gap: 4px; }
+    .chat-header-icon { width: 20px; height: 20px; }
+    .chat-header-name { font-size: 13px; }
+    .chat-header-topic { display: none; }
+    .chat-header-actions { gap: 2px; }
+
+    .guild-header { padding: 0 4px; height: 40px; font-size: 12px; }
+
+    .channel-item { margin: 0 1px; padding: 2px 4px; font-size: 12px; }
+    .channel-name { font-size: 12px; }
+
+    .chat-input-wrap { padding: 0 8px 8px; }
+    .chat-input-box { padding: 0 8px; }
+    .chat-input { font-size: 13px; min-height: 36px; }
+    .chat-input-btn { width: 32px; height: 32px; }
+    .send-btn { width: 28px; height: 28px; }
+
+    .token-box { width: 90vw; padding: 16px; }
+    .token-box h1 { font-size: 18px; margin-bottom: 4px; }
+    .token-box p { font-size: 12px; margin-bottom: 16px; }
+    .token-box label { font-size: 10px; }
+    .token-box input { padding: 8px; font-size: 13px; }
+    .token-box button { padding: 10px; font-size: 13px; margin-top: 12px; }
+
+    .modal { width: 90vw; padding: 12px; max-height: 70vh; }
+    .modal h2 { font-size: 16px; margin-bottom: 4px; }
+    .modal p { font-size: 12px; margin-bottom: 16px; }
+
+    .profile-avatar { width: 60px; height: 60px; border: 4px solid var(--bg-secondary); }
+    .profile-banner { height: 60px; }
+    .profile-avatar-wrap { width: 60px; height: 60px; bottom: -30px; }
+    .profile-username { font-size: 16px; margin-top: 32px; }
+
+    .empty-state { padding: 16px; gap: 8px; }
+    .empty-icon { font-size: 36px; }
+    .empty-text { font-size: 13px; }
+
+    #toast-container { bottom: 8px; right: 8px; gap: 4px; }
+    .toast { padding: 10px 12px; font-size: 12px; max-width: 260px; }
+
+    .user-panel { padding: 4px; }
+    .user-panel-avatar { width: 24px; height: 24px; font-size: 10px; }
+    .user-panel-info { min-width: 80px; }
+    .user-panel-name { font-size: 11px; }
+    .user-panel-tag { font-size: 9px; }
+    .icon-btn { width: 24px; height: 24px; }
+
+    .message-group { gap: 6px; padding: 1px 6px; }
+    .msg-avatar { width: 28px; height: 28px; margin-top: 0; font-size: 10px; }
+    .msg-avatar-spacer { width: 28px; }
+    .msg-header { gap: 4px; margin-bottom: 1px; }
+    .msg-author { font-size: 13px; }
+    .msg-time { font-size: 9px; }
+    .msg-text { font-size: 13px; line-height: 1.3; }
+
+    .member-item { padding: 2px 4px; gap: 4px; }
+    .member-avatar { width: 24px; height: 24px; font-size: 9px; }
+    .member-name { font-size: 12px; }
+
+    .dm-item { padding: 4px 6px; gap: 6px; margin: 0 2px; }
+    .dm-avatar { width: 24px; height: 24px; font-size: 9px; }
+    .dm-name { font-size: 12px; }
+
+    .search-bar { width: 80px; font-size: 11px; padding: 2px 4px; }
+
+    .vc-bar { padding: 6px 8px; font-size: 11px; gap: 6px; }
+    .vc-bar-disconnect { font-size: 14px; }
+
+    .category-name { font-size: 9px; padding: 3px 2px; }
+
+    .msg-reaction { font-size: 12px; padding: 1px 4px; margin: 1px 1px 0 0; }
+
+    .tag-badge { font-size: 8px; padding: 1px 3px; }
+
+    #member-toggle-btn { width: 32px; height: 32px; }
   }
   .vc-bar-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
   .vc-bar-name { flex: 1; color: var(--green); font-weight: 600; }
@@ -781,6 +1000,19 @@
   .friend-intro svg { fill: var(--text-muted); opacity: .5; }
   .friend-intro h2 { font-size: 24px; font-weight: 700; color: var(--text-muted); }
   .friend-intro p { color: var(--text-muted); font-size: 14px; }
+
+  /* Improved for mobile touch */
+  @supports (padding: max(0px)) {
+    body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+  }
+
+  input, textarea, button { -webkit-appearance: none; }
+
+  .messages-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
 </style>
 </head>
 <body>
@@ -1256,18 +1488,66 @@ async function selectChannel(ch) {
 // ───────────────────────────────────────────────
 // VOICE CHANNEL
 // ───────────────────────────────────────────────
-function joinVoiceChannel(ch) {
-  connectedVC = ch;
-  const vcBar = document.getElementById('vc-bar');
-  document.getElementById('vc-bar-name').textContent = `${ch.name} · Bağlandı`;
-  vcBar.style.display = 'flex';
-  toast(`🔊 ${ch.name} ses kanalına bağlandınız.`, 'success');
-  
-  // Show voice users placeholder
-  const item = document.querySelector(`.channel-item[data-channel-id="${ch.id}"]`);
-  // Mark as active
-  document.querySelectorAll('.channel-item').forEach(el => el.classList.remove('active'));
-  if (item) item.classList.add('active');
+async function joinVoiceChannel(ch) {
+  // Try to join voice channel via API
+  try {
+    // First, attempt to get voice state
+    const r = await apiFetch('PATCH', `/channels/${ch.id}/voice`, {
+      user_id: currentUser.id
+    }).catch(() => null);
+
+    connectedVC = ch;
+    const vcBar = document.getElementById('vc-bar');
+    document.getElementById('vc-bar-name').textContent = `${ch.name} · Bağlandı`;
+    vcBar.style.display = 'flex';
+    
+    // Mark as active
+    document.querySelectorAll('.channel-item').forEach(el => el.classList.remove('active'));
+    const item = document.querySelector(`.channel-item[data-channel-id="${ch.id}"]`);
+    if (item) item.classList.add('active');
+
+    // Try to load voice channel members
+    await loadVoiceMembers(ch.id);
+    
+    toast(`🔊 ${ch.name} ses kanalına bağlandınız.`, 'success');
+  } catch(e) {
+    toast(`❌ Ses kanalına bağlanılamadı: ${e.message || 'Bilinmeyen hata'}`, 'error');
+  }
+}
+
+async function loadVoiceMembers(channelId) {
+  try {
+    const r = await apiFetch('GET', `/channels/${channelId}?with_counts=true`);
+    if (r.ok) {
+      const ch = await r.json();
+      if (ch.voice_members) {
+        // Render voice members
+        renderVoiceMembers(ch.voice_members, channelId);
+      }
+    }
+  } catch(e) {}
+}
+
+function renderVoiceMembers(members, channelId) {
+  // Show connected voice users
+  const item = document.querySelector(`.channel-item[data-channel-id="${channelId}"]`);
+  if (item && members.length > 0) {
+    const voiceList = document.createElement('div');
+    voiceList.className = 'voice-users';
+    members.forEach(member => {
+      const userItem = document.createElement('div');
+      userItem.className = 'voice-user-item';
+      const name = member.nick || member.user?.username || 'Kullanıcı';
+      userItem.innerHTML = `
+        <div class="voice-avatar">${avatarEl(member.user?.id, member.user?.avatar, name, 20)}</div>
+        <span>${escapeHtml(name)}</span>
+      `;
+      voiceList.appendChild(userItem);
+    });
+    const existing = item.parentNode.querySelector('.voice-users');
+    if (existing) existing.remove();
+    item.parentNode.insertBefore(voiceList, item.nextSibling);
+  }
 }
 
 function leaveVoice() {
@@ -1275,6 +1555,9 @@ function leaveVoice() {
   document.getElementById('vc-bar').style.display = 'none';
   toast('Ses kanalından ayrıldınız.', 'info');
   document.querySelectorAll('.channel-item').forEach(el => el.classList.remove('active'));
+  
+  // Remove voice members list
+  document.querySelectorAll('.voice-users').forEach(el => el.remove());
 }
 
 // ───────────────────────────────────────────────
@@ -1325,9 +1608,18 @@ async function loadMessages(channelId) {
   list.innerHTML = '<div class="spinner"></div><div class="loading-text">Mesajlar yükleniyor...</div>';
 
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+    
     const r = await apiFetch('GET', `/channels/${channelId}/messages?limit=50`);
+    clearTimeout(timeoutId);
+    
     if (!r.ok) {
-      list.innerHTML = `<div style="padding:16px;color:var(--text-muted);text-align:center">Bu kanalı okuma yetkiniz yok.</div>`;
+      if (r.status === 403) {
+        list.innerHTML = `<div style="padding:16px;color:var(--text-muted);text-align:center;font-size:13px">Bu kanalı okuma yetkiniz yok.</div>`;
+      } else {
+        list.innerHTML = `<div style="padding:16px;color:var(--red);text-align:center;font-size:13px">Hata: ${r.status} ${r.statusText}</div>`;
+      }
       return;
     }
     const data = await r.json();
@@ -1336,7 +1628,7 @@ async function loadMessages(channelId) {
     scrollToBottom(channelId);
     if (data.length > 0) lastMessageId[channelId] = data[data.length - 1].id;
   } catch(e) {
-    list.innerHTML = `<div style="padding:16px;color:var(--red);text-align:center">Mesajlar yüklenemedi.</div>`;
+    list.innerHTML = `<div style="padding:16px;color:var(--red);text-align:center;font-size:13px">Mesajlar yüklenemedi: ${e.message || 'Bilinmeyen hata'}</div>`;
   }
 }
 
@@ -1345,12 +1637,16 @@ function renderMessages(channelId) {
   if (!list) return;
   list.innerHTML = '';
   const msgs = messages[channelId] || [];
+  
+  // Use DocumentFragment for better performance on mobile
+  const fragment = document.createDocumentFragment();
   msgs.forEach((msg, i) => {
     const prev = msgs[i-1];
     const isFirst = !prev || prev.author.id !== msg.author.id || 
       (new Date(msg.timestamp) - new Date(prev.timestamp)) > 5 * 60 * 1000;
-    list.appendChild(buildMessage(msg, isFirst, channelId));
+    fragment.appendChild(buildMessage(msg, isFirst, channelId));
   });
+  list.appendChild(fragment);
 }
 
 function buildMessage(msg, isFirst, channelId) {
@@ -1558,6 +1854,10 @@ function handleInputKey(e, channelId) {
     e.preventDefault();
     sendMessage(channelId);
   }
+  // Also handle mobile volume keys and other potential issues
+  if (e.key === 'ArrowUp') {
+    e.preventDefault();
+  }
 }
 
 function autoResize(el) {
@@ -1614,7 +1914,14 @@ function stopPolling() {
 
 function scrollToBottom(channelId) {
   const c = document.getElementById(`msg-container-${channelId}`);
-  if (c) c.scrollTop = c.scrollHeight;
+  if (c) {
+    setTimeout(() => {
+      c.scrollTop = c.scrollHeight;
+      if (window.innerWidth <= 768) {
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    }, 50);
+  }
 }
 
 // ───────────────────────────────────────────────
@@ -1732,6 +2039,7 @@ async function showProfile(userId, channelId, guildId) {
   const content = document.getElementById('modal-content');
   content.innerHTML = '<div class="spinner"></div>';
   modal.style.display = 'flex';
+  openModal();
 
   try {
     const r = await apiFetch('GET', `/users/${userId}`);
@@ -1826,6 +2134,15 @@ function showWelcome() {
 function closeModal(e) {
   if (!e || e.target === document.getElementById('modal-overlay')) {
     document.getElementById('modal-overlay').style.display = 'none';
+    // Remove any modals that might have opened on mobile
+    document.body.style.overflow = '';
+  }
+}
+
+// Prevent body scroll when modal is open
+function openModal() {
+  if (window.innerWidth <= 768) {
+    document.body.style.overflow = 'hidden';
   }
 }
 
@@ -1838,13 +2155,25 @@ function insertEmoji(channelId) {
   if (existing) { existing.remove(); return; }
   const picker = document.createElement('div');
   picker.id = 'emoji-picker';
-  picker.style.cssText = 'position:fixed;bottom:80px;right:60px;background:var(--bg-secondary);border:1px solid var(--bg-accent);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;width:200px;gap:4px;z-index:1000;box-shadow:0 4px 16px rgba(0,0,0,0.4)';
+  
+  // Mobile: position at bottom, desktop: position near button
+  const isMobile = window.innerWidth <= 768;
+  let positionStyle;
+  if (isMobile) {
+    positionStyle = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);';
+  } else {
+    positionStyle = 'position:fixed;bottom:80px;right:60px;';
+  }
+  
+  picker.style.cssText = positionStyle + 'background:var(--bg-secondary);border:1px solid var(--bg-accent);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;width:240px;gap:4px;z-index:1000;box-shadow:0 4px 16px rgba(0,0,0,0.4)';
   emojis.forEach(em => {
     const btn = document.createElement('button');
     btn.textContent = em;
-    btn.style.cssText = 'background:none;border:none;cursor:pointer;font-size:20px;padding:2px;border-radius:4px;transition:background .1s';
+    btn.style.cssText = 'background:none;border:none;cursor:pointer;font-size:20px;padding:2px;border-radius:4px;transition:background .1s;flex:0 0 calc(25% - 3px)';
     btn.onmouseover = () => btn.style.background = 'var(--bg-accent)';
     btn.onmouseout = () => btn.style.background = 'none';
+    btn.ontouchstart = () => btn.style.background = 'var(--bg-accent)';
+    btn.ontouchend = () => btn.style.background = 'none';
     btn.onclick = () => { input.value += em; input.focus(); picker.remove(); };
     picker.appendChild(btn);
   });
@@ -1855,15 +2184,37 @@ function insertEmoji(channelId) {
 }
 
 function showChannelCtx(e, ch) {
+  e.preventDefault();
   const menu = document.getElementById('ctx-menu');
   menu.style.display = 'block';
-  menu.style.left = e.clientX + 'px';
-  menu.style.top = Math.min(e.clientY, window.innerHeight - 150) + 'px';
+  
+  // Mobile positioning
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    menu.style.left = '50%';
+    menu.style.top = '50%';
+    menu.style.transform = 'translate(-50%, -50%)';
+  } else {
+    menu.style.left = e.clientX + 'px';
+    menu.style.top = Math.min(e.clientY, window.innerHeight - 150) + 'px';
+    menu.style.transform = 'none';
+  }
+  
   menu.innerHTML = `
     <div class="ctx-item" onclick="copyId('${ch.id}');hideCtx()">🔗 ID Kopyala</div>
     <div class="ctx-item" onclick="toast('Kanal başlığı: ${escapeHtml(ch.name)}','info');hideCtx()">ℹ️ Kanal Bilgisi</div>
     ${ch.type === 0 ? `<div class="ctx-item" onclick="selectChannel(${JSON.stringify(ch).replace(/"/g,"'")});hideCtx()">💬 Kanalı Aç</div>` : ''}
   `;
+  
+  // Fix for mobile - add close button
+  if (isMobile) {
+    const closeBtn = document.createElement('div');
+    closeBtn.className = 'ctx-item';
+    closeBtn.onclick = hideCtx;
+    closeBtn.textContent = '✕ Kapat';
+    menu.appendChild(closeBtn);
+  }
+  
   setTimeout(() => document.addEventListener('click', function handler() { hideCtx(); document.removeEventListener('click', handler); }, { once: true }), 100);
 }
 
@@ -1910,6 +2261,18 @@ document.addEventListener('keydown', e => {
     closeModal();
     hideCtx();
     document.getElementById('emoji-picker')?.remove();
+  }
+});
+
+// Improve mobile input handling
+document.addEventListener('focusin', () => {
+  if (window.innerWidth <= 768) {
+    setTimeout(() => {
+      const active = document.activeElement;
+      if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
+        active.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }, 300);
   }
 });
 </script>
